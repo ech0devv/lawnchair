@@ -22,6 +22,7 @@ open class StretchRecyclerViewContainer @JvmOverloads constructor(
 
         if (!childEffect.isFinished) {
             val save = canvas.save()
+            clipChild(canvas, child)
             childEffect.setSize(width, height)
             childEffect.applyStretch(canvas, StretchEdgeEffect.POSITION_BOTTOM)
             val result = super.drawChild(canvas, child, drawingTime)
@@ -43,5 +44,9 @@ open class StretchRecyclerViewContainer @JvmOverloads constructor(
                 }
             }
         }
+    }
+
+    open fun clipChild(canvas: Canvas, child: View) {
+        canvas.clipRect(child.left, child.top, child.right, child.bottom)
     }
 }
