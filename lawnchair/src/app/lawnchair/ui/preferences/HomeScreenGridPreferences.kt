@@ -1,7 +1,6 @@
 package app.lawnchair.ui.preferences
 
 import android.content.res.Configuration
-import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -17,6 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavGraphBuilder
@@ -27,14 +27,13 @@ import app.lawnchair.ui.preferences.components.GridOverridesPreview
 import app.lawnchair.ui.preferences.components.PreferenceGroup
 import app.lawnchair.ui.preferences.components.PreferenceLayout
 import app.lawnchair.ui.preferences.components.SliderPreference
+import com.android.launcher3.LauncherAppState
 import com.android.launcher3.R
 
-@ExperimentalAnimationApi
 fun NavGraphBuilder.homeScreenGridGraph(route: String) {
     preferenceGraph(route, { HomeScreenGridPreferences() })
 }
 
-@ExperimentalAnimationApi
 @Composable
 fun HomeScreenGridPreferences() {
     val isPortrait = LocalConfiguration.current.orientation == Configuration.ORIENTATION_PORTRAIT
@@ -81,11 +80,13 @@ fun HomeScreenGridPreferences() {
         }
 
         val navController = LocalNavController.current
+        val context = LocalContext.current
         val applyOverrides = {
             prefs.batchEdit {
                 columnsAdapter.onChange(columns.value)
                 rowsAdapter.onChange(rows.value)
             }
+            LauncherAppState.getIDP(context).onPreferencesChanged(context)
             navController.popBackStack()
         }
 

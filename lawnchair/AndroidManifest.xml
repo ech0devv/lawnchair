@@ -50,6 +50,15 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name="app.lawnchair.BlankActivity"
+            android:theme="@style/Theme.Transparent" />
+
+        <activity
+            android:name="app.lawnchair.smartspace.SmartspacePreferencesShortcut"
+            android:theme="@style/Theme.Transparent" />
+
         <receiver
             android:name="app.lawnchair.gestures.handlers.SleepMethodDeviceAdmin$SleepDeviceAdmin"
             android:label="@string/derived_app_name"
@@ -99,6 +108,16 @@
             android:exported="false"
             android:name="app.lawnchair.bugreport.UploaderService"
             android:process=":bugReport" />
+
+        <receiver android:name="app.lawnchair.smartspace.SmartspaceAppWidgetProvider"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/smartspace_appwidget_info" />
+        </receiver>
 
         <meta-data
             android:name="xyz.paphonb.quickstepswitcher.minSdk"

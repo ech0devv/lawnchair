@@ -4,7 +4,6 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.pm.LauncherApps
 import android.os.Process
-import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.material.DropdownMenuItem
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Build
@@ -27,7 +26,6 @@ import app.lawnchair.util.restartLauncher
 import com.android.launcher3.BuildConfig
 import com.android.launcher3.R
 
-@ExperimentalAnimationApi
 @Composable
 fun PreferencesDashboard() {
     PreferenceLayout(
@@ -124,7 +122,7 @@ fun PreferencesOverflowMenu() {
     }
 }
 
-private fun openAppInfo(context: Context) {
+fun openAppInfo(context: Context) {
     val launcherApps = context.getSystemService<LauncherApps>()
     val componentName = ComponentName(context, LawnchairLauncher::class.java)
     launcherApps?.startAppDetailsActivity(componentName, Process.myUserHandle(), null, null)
