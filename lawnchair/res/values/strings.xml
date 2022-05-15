@@ -63,6 +63,7 @@
     <string name="app_info_drop_target_label">App Info</string>
     <string name="item_removed">Item removed.</string>
     <string name="all_apps_no_search_results">No apps found matching “<xliff:g example="Android" id="query">%1$s</xliff:g>”.</string>
+    <string name="translucent_background">Translucent Background</string>
     <string name="background_opacity">Background Opacity</string>
     <string name="background_lightness_label">Background Lightness</string>
     <string name="adaptive_icons">Adaptive Icons</string>
@@ -224,7 +225,7 @@
     <string name="always_open_website_description">Open search provider’s website even if their app is installed.</string>
     <string name="search_provider">Search Provider</string>
     <string name="status_bar_label">Status Bar</string>
-    <string name="icon_picker_load_failed">Failed to load more icons</string>
+    <string name="icon_picker_load_failed">Couldn’t load more icons.</string>
     <string name="reset_custom_icons">Reset Custom Icons</string>
     <string name="reset_custom_icons_confirmation">All custom icons will be reset. Do you want to continue?</string>
     <string name="taskbar_label">Taskbar</string>
@@ -248,4 +249,5 @@
     <string name="smartspace_now_playing">Now Playing</string>
     <string name="smartspace_requires_setup">Tap to Set Up</string>
     <string name="event_provider_missing_notification_dots">To use <xliff:g example="My Provider" id="providerName">“%1$s”</xliff:g>, enable Notification Dots.</string>
+    <string name="smartspace_media_info_separator">" — "</string>
 </resources>
